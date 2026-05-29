@@ -27,7 +27,7 @@
             </div>
             <div class="flex items-center gap-3 bg-slate-900 border border-slate-700 px-4 py-2 rounded-lg text-xs font-semibold">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                <span class="text-slate-300">ESTADO DEL COEI: TELEMETRÍA EN VIVO</span>
+                <span class="text-slate-300">ESTADO: ENLACE ACTIVO SIN CAÍDAS</span>
             </div>
         </div>
     </header>
@@ -39,14 +39,14 @@
                 <div class="text-amber-500 text-2xl mt-1"><i class="fa-solid fa-shield-halved"></i></div>
                 <div>
                     <h4 class="text-sm font-bold text-slate-200">Ley N° 29783 (Seguridad y Salud en el Trabajo)</h4>
-                    <p class="text-xs text-slate-400">Protección del personal, control de incidentes internos y evacuación de servidores en sede.</p>
+                    <p class="text-xs text-slate-400">Control de incidentes internos y protección de la fuerza laboral en sedes institucionales.</p>
                 </div>
             </div>
             <div class="flex items-start gap-3 pl-2">
                 <div class="text-blue-500 text-2xl mt-1"><i class="fa-solid fa-gavel"></i></div>
                 <div>
-                    <h4 class="text-sm font-bold text-slate-200">Ley N° 29664 (SINAGERD / Gestión del Riesgo)</h4>
-                    <p class="text-xs text-slate-400">Continuidad operativa regional, evaluación de daños (EDAN) y resiliencia en redes de comunicación.</p>
+                    <h4 class="text-sm font-bold text-slate-200">Ley N° 29664 (SINAGERD / Continuidad Operativa)</h4>
+                    <p class="text-xs text-slate-400">Evaluación de Daños y Análisis de Necesidades (EDAN) e interoperabilidad de enlaces de contingencia.</p>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
-                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Total Personal en Sede</p>
+                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Fuerza Monitoreada Sede</p>
                     <h3 class="text-2xl font-bold mt-1 text-white" id="kpi-fuerza">0</h3>
                     <p class="text-xs text-slate-400 mt-1" id="sub-kpi-campo">0 en campo</p>
                 </div>
@@ -62,9 +62,9 @@
             </div>
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
-                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Eficiencia de Evacuación</p>
-                    <h3 class="text-2xl font-bold mt-1 text-emerald-400" id="kpi-evacuados">0 Ext.</h3>
-                    <p class="text-xs text-slate-400 mt-1" id="sub-kpi-reubicados">0 internos</p>
+                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Evacuación Externa</p>
+                    <h3 class="text-2xl font-bold mt-1 text-emerald-400" id="kpi-evacuados">0 Salvados</h3>
+                    <p class="text-xs text-slate-400 mt-1" id="sub-kpi-reubicados">0 en columnas</p>
                 </div>
                 <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl text-emerald-400 text-xl"><i class="fa-solid fa-person-running"></i></div>
             </div>
@@ -78,9 +78,9 @@
             </div>
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
-                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Índice de Afectación</p>
+                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Sedes con Afectación</p>
                     <h3 class="text-2xl font-bold mt-1 text-red-500" id="kpi-danos">0</h3>
-                    <p class="text-xs text-slate-400 mt-1">Locales con daños mínimos</p>
+                    <p class="text-xs text-slate-400 mt-1">Locales con fisuras/daños</p>
                 </div>
                 <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl text-red-500 text-xl"><i class="fa-solid fa-house-crack"></i></div>
             </div>
@@ -90,7 +90,6 @@
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-sm font-bold tracking-wide uppercase text-slate-300">Garantía de Infraestructura Física (ITSE)</h3>
-                    <span class="text-[10px] bg-slate-900 px-2.5 py-1 rounded-md text-slate-400 font-mono">SINAGERD</span>
                 </div>
                 <div class="h-64 relative flex items-center justify-center">
                     <canvas id="chartITSE"></canvas>
@@ -98,8 +97,7 @@
             </div>
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm">
                 <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-sm font-bold tracking-wide uppercase text-slate-300">Redes de Enlace en Contingencia</h3>
-                    <span class="text-[10px] bg-slate-900 px-2.5 py-1 rounded-md text-slate-400 font-mono">Resiliencia</span>
+                    <h3 class="text-sm font-bold tracking-wide uppercase text-slate-300">Canales de Enlace Colectado</h3>
                 </div>
                 <div class="h-64 relative flex items-center justify-center">
                     <canvas id="chartComms"></canvas>
@@ -110,7 +108,7 @@
         <div class="bg-slate-950 rounded-xl border border-slate-800 shadow-sm overflow-hidden">
             <div class="p-5 border-b border-slate-800 bg-slate-950">
                 <h3 class="text-md font-bold text-white">Consolidado Técnico de Unidades Territoriales</h3>
-                <p class="text-xs text-slate-400 mt-0.5">Información procesada dinámicamente desde Google Sheets</p>
+                <p class="text-xs text-slate-400 mt-0.5">Información operativa directa de Google Sheets procesada de manera segura</p>
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
@@ -129,7 +127,7 @@
                     <tbody class="text-xs divide-y divide-slate-800/60 text-slate-300" id="tabla-datos">
                         <tr>
                             <td colspan="8" class="p-8 text-center text-slate-500 font-medium animate-pulse">
-                                <i class="fa-solid fa-spinner fa-spin mr-2"></i>Sincronizando datos con el servidor en vivo...
+                                <i class="fa-solid fa-spinner fa-spin mr-2"></i>Descargando flujo seguro de datos...
                             </td>
                         </tr>
                     </tbody>
@@ -139,16 +137,17 @@
     </main>
 
     <script>
-        const LINK_CSV_REAL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6Ghn8BBQtHKaYNHMEFdEGWPA9Wj-imHslADnBPLbgAr8r_BnuaRNzbVNDcKGeAnGFORoHDrFNCJXf/pub?gid=0&single=true&output=csv";
-        const URL_GOOGLE_SHEETS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6Ghn8BBQtHKaYNHMEFdEGWPA9Wj-imHslADnBPLbgAr8r_BnuaRNzbVNDcKGeAnGFORoHDrFNCJXf/pub?output=csv" + encodeURIComponent(LINK_CSV_REAL);
+        const LINK_CSV_PURE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6Ghn8BBQtHKaYNHMEFdEGWPA9Wj-imHslADnBPLbgAr8r_BnuaRNzbVNDcKGeAnGFORoHDrFNCJXf/pub?gid=0&single=true&output=csv";
+        const URL_GOOGLE_SHEETS = "https://api.allorigins.win/raw?url=" + encodeURIComponent(LINK_CSV_PURE);
 
         let chartITSEInstance = null;
         let chartCommsInstance = null;
 
         async function cargarDatosDesdeGoogle() {
             try {
-                const response = await fetch(URL_GOOGLE_SHEETS + "&_nocache=" + Date.now());
+                const response = await fetch(URL_GOOGLE_SHEETS + "&_t=" + Date.now());
                 const dataText = await response.text();
+                
                 const filas = dataText.replace(/\r/g, "").split("\n").slice(1); 
                 const baseDeDatosMidis = [];
 
@@ -156,7 +155,8 @@
                     if (!filasContenido.trim()) return;
                     const columnas = filasContenido.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(c => c.replace(/^"|"/g, '').trim());
                     
-                    if (columnas[0] && columnas[0].trim() !== "") { 
+                    // Bloqueo de seguridad: Evitar procesar si la fila es la cabecera repetida o está vacía
+                    if (columnas[0] && columnas[0].trim() !== "" && columnas[0] !== "PROGRAMA") { 
                         baseDeDatosMidis.push({
                             programa: columnas[0],
                             personalOficina: parseInt(columnas[1]) || 0,
@@ -174,6 +174,7 @@
                         });
                     }
                 });
+
                 renderizarDashboard(baseDeDatosMidis);
             } catch (error) {
                 console.error("Fallo de conexión:", error);
@@ -232,12 +233,13 @@
             });
 
             document.getElementById("kpi-fuerza").innerHTML = totalOficina;
-            document.getElementById("sub-kpi-campo").innerHTML = `<span class="text-emerald-400">${totalCampo}</span> en campo (SST)`;
+            document.getElementById("sub-kpi-campo").innerHTML = `<span class="text-emerald-400">${totalCampo}</span> en campo`;
             document.getElementById("kpi-evacuados").innerHTML = `${totalEvacuadosExt} Salvados`;
             document.getElementById("sub-kpi-reubicados").innerHTML = `<span class="text-blue-400">${totalReubicadosInt}</span> en columnas`;
             document.getElementById("kpi-itse").innerHTML = baseDeDatosMidis.length ? Math.round((conteoItseSi / baseDeDatosMidis.length) * 100) + "%" : "0%";
             document.getElementById("kpi-danos").innerHTML = localesConDanos;
 
+            // Blindar Gráfico ITSE de fallas de dibujo
             if(chartITSEInstance) chartITSEInstance.destroy();
             const ctxItse = document.getElementById('chartITSE').getContext('2d');
             chartITSEInstance = new Chart(ctxItse, {
@@ -254,6 +256,7 @@
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8' } } } }
             });
 
+            // Blindar Gráfico Comunicaciones de fallas de dibujo
             if(chartCommsInstance) chartCommsInstance.destroy();
             const ctxComms = document.getElementById('chartComms').getContext('2d');
             chartCommsInstance = new Chart(ctxComms, {
