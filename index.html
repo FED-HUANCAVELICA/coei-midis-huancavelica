@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COEI MIDIS Huancavelica - Dashboard SST-GRD</title>
-    <!-- Tailwind CSS para diseño moderno -->
+    <title>COEI MIDIS Huancavelica - Dashboard Integrado SST-GRD</title>
+    <!-- Tailwind CSS para diseño de interfaz táctica -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js para los gráficos interactivos -->
+    <!-- Chart.js para telemetría gráfica en tiempo real -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- FontAwesome para íconos -->
+    <!-- FontAwesome para iconografía de emergencia -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; padding: 0; }
+    </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased">
 
-    <!-- BARRA DE NAVEGACIÓN -->
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL / COMANDO -->
     <header class="border-b border-slate-800 bg-slate-950 px-6 py-4 sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-4">
@@ -22,83 +26,83 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold tracking-wide text-white">COEI MIDIS HUANCAVELICA</h1>
-                    <p class="text-xs text-slate-400 font-medium tracking-wider uppercase">Oficina de Enlace Regional - Dashboard de Control SST-GRD</p>
+                    <p class="text-xs text-slate-400 font-medium tracking-wider uppercase">Oficina de Enlace Regional - Dashboard de Control Operacional SST-GRD</p>
                 </div>
             </div>
             <div class="flex items-center gap-3 bg-slate-900 border border-slate-700 px-4 py-2 rounded-lg text-xs font-semibold">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                <span class="text-slate-300">ESTADO DEL SISTEMA: OPERATIVO</span>
+                <span class="text-slate-300">ESTADO DEL COEI: MONITOREO POST-SIMULACRO ACTIVO</span>
             </div>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto p-4 md:p-6 space-y-6">
 
-        <!-- RESUMEN MARCO LEGAL -->
+        <!-- RESUMEN ENFOQUE MARCO LEGAL INTEGRADO -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-950 p-4 rounded-xl border border-slate-800">
             <div class="flex items-start gap-3 border-r border-slate-800 pr-4">
                 <div class="text-amber-500 text-2xl mt-1"><i class="fa-solid fa-shield-halved"></i></div>
                 <div>
                     <h4 class="text-sm font-bold text-slate-200">Ley N° 29783 (Seguridad y Salud en el Trabajo)</h4>
-                    <p class="text-xs text-slate-400">Monitoreo intramuros del personal administrativo y vectores en rutas de campo críticas.</p>
+                    <p class="text-xs text-slate-400">Protección intramuros de la fuerza laboral, control de incidentes internos y evacuación segura de servidores en sede.</p>
                 </div>
             </div>
             <div class="flex items-start gap-3 pl-2">
                 <div class="text-blue-500 text-2xl mt-1"><i class="fa-solid fa-gavel"></i></div>
                 <div>
-                    <h4 class="text-sm font-bold text-slate-200">Ley N° 29664 (Sistema Nacional de GRD - SINAGERD)</h4>
-                    <p class="text-xs text-slate-400">Continuidad operativa de los programas sociales e infraestructura ante desastres mayores.</p>
+                    <h4 class="text-sm font-bold text-slate-200">Ley N° 29664 (SINAGERD / Gestión del Riesgo)</h4>
+                    <p class="text-xs text-slate-400">Continuidad operativa regional, evaluación de daños en infraestructura (EDAN) y resiliencia en redes de comunicación.</p>
                 </div>
             </div>
         </div>
 
-        <!-- TARJETAS DE INDICADORES CLAVE (KPIs) -->
+        <!-- TARJETAS DE TELEMETRÍA CRÍTICA (KPIs) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- KPI 1 -->
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
-                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Fuerza Desplegada</p>
-                    <h3 class="text-2xl font-bold mt-1 text-white" id="kpi-personal">184</h3>
-                    <p class="text-xs text-slate-400 mt-1"><span class="text-emerald-400 font-medium">139</span> en rutas de campo</p>
+                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Total Personal en Sede</p>
+                    <h3 class="text-2xl font-bold mt-1 text-white" id="kpi-fuerza">0</h3>
+                    <p class="text-xs text-slate-400 mt-1" id="sub-kpi-campo">0 en vectores de campo</p>
                 </div>
                 <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl text-blue-400 text-xl"><i class="fa-solid fa-users"></i></div>
             </div>
             <!-- KPI 2 -->
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
-                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Locales con ITSE</p>
-                    <h3 class="text-2xl font-bold mt-1 text-white" id="kpi-itse">40%</h3>
-                    <p class="text-xs text-slate-500 mt-1">Defensa Civil Vigente</p>
+                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Eficiencia de Evacuación</p>
+                    <h3 class="text-2xl font-bold mt-1 text-emerald-400" id="kpi-evacuados">0</h3>
+                    <p class="text-xs text-slate-400 mt-1" id="sub-kpi-reubicados">0 reubicados en zonas internas</p>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl text-amber-500 text-xl"><i class="fa-solid fa-building-shield"></i></div>
+                <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl text-emerald-400 text-xl"><i class="fa-solid fa-person-running"></i></div>
             </div>
             <!-- KPI 3 -->
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
-                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Respaldo Padrones</p>
-                    <h3 class="text-2xl font-bold mt-1 text-emerald-400" id="kpi-backup">80%</h3>
-                    <p class="text-xs text-slate-400 mt-1">Continuidad de datos garantizada</p>
+                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Locales con ITSE</p>
+                    <h3 class="text-2xl font-bold mt-1 text-amber-500" id="kpi-itse">0%</h3>
+                    <p class="text-xs text-slate-500 mt-1">Defensa Civil Certificada</p>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl text-emerald-400 text-xl"><i class="fa-solid fa-database"></i></div>
+                <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl text-amber-500 text-xl"><i class="fa-solid fa-building-shield"></i></div>
             </div>
             <!-- KPI 4 -->
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm flex items-center justify-between">
                 <div>
-                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Puntos Críticos en Rutas</p>
-                    <h3 class="text-2xl font-bold mt-1 text-red-500" id="kpi-criticos">12</h3>
-                    <p class="text-xs text-slate-400 mt-1">Zonas de alto peligro vial/clima</p>
+                    <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Índice de Afectación</p>
+                    <h3 class="text-2xl font-bold mt-1 text-red-500" id="kpi-danos">0</h3>
+                    <p class="text-xs text-slate-400 mt-1">Locales con daños mínimos</p>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl text-red-500 text-xl"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl text-red-500 text-xl"><i class="fa-solid fa-house-crack"></i></div>
             </div>
         </div>
 
-        <!-- ZONA DE GRÁFICOS -->
+        <!-- SECCIÓN DE GRÁFICOS INTERACTIVOS -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Gráfico 1: ITSE por Programa -->
+            <!-- Gráfico 1: Estado ITSE -->
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm">
                 <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-sm font-bold tracking-wide uppercase text-slate-300">Cumplimiento Legal ITSE (SGRD)</h3>
-                    <span class="text-[10px] bg-slate-900 px-2.5 py-1 rounded-md text-slate-400 font-mono">Por Local Institucional</span>
+                    <h3 class="text-sm font-bold tracking-wide uppercase text-slate-300">Garantía de Infraestructura Física (ITSE)</h3>
+                    <span class="text-[10px] bg-slate-900 px-2.5 py-1 rounded-md text-slate-400 font-mono">SINAGERD</span>
                 </div>
                 <div class="h-64 relative flex items-center justify-center">
                     <canvas id="chartITSE"></canvas>
@@ -107,8 +111,8 @@
             <!-- Gráfico 2: Canales de Comunicación -->
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-sm">
                 <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-sm font-bold tracking-wide uppercase text-slate-300">Vectores de Comunicación en Campo</h3>
-                    <span class="text-[10px] bg-slate-900 px-2.5 py-1 rounded-md text-slate-400 font-mono">Resiliencia COEI</span>
+                    <h3 class="text-sm font-bold tracking-wide uppercase text-slate-300">Redes de Enlace en Contingencia</h3>
+                    <span class="text-[10px] bg-slate-900 px-2.5 py-1 rounded-md text-slate-400 font-mono">Resiliencia Corporativa</span>
                 </div>
                 <div class="h-64 relative flex items-center justify-center">
                     <canvas id="chartComms"></canvas>
@@ -116,77 +120,148 @@
             </div>
         </div>
 
-        <!-- TABLA BASE DE DATOS JUT (ESTRUCTURA DE HOJA DE CÁLCULO) -->
+        <!-- CONSOLIDADO DE DATOS COMPLETO (BASE DE DATOS JUT) -->
         <div class="bg-slate-950 rounded-xl border border-slate-800 shadow-sm overflow-hidden">
             <div class="p-5 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-950">
                 <div>
-                    <h3 class="text-md font-bold text-white">Consolidado de Datos de Unidades Territoriales</h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Información reportada en tiempo real por los JUT - Huancavelica</p>
+                    <h3 class="text-md font-bold text-white">Consolidado Técnico de Unidades Territoriales</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Base de datos unificada: Diagnóstico institucional base + Reporte Operacional Post-Simulacro</p>
                 </div>
-                <span class="text-xs font-mono bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-slate-400">Registros Totales: 5 Programas</span>
+                <span class="text-xs font-mono bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-slate-400">Unidades Controladas: 7 Programas</span>
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="border-b border-slate-800 bg-slate-900/50 text-slate-300 text-xs font-semibold uppercase tracking-wider">
+                        <tr class="border-b border-slate-800 bg-slate-900/50 text-slate-300 text-[11px] font-semibold uppercase tracking-wider">
                             <th class="p-4">Programa</th>
-                            <th class="p-4">Personal (Of./Campo)</th>
-                            <th class="p-4">Rutas Críticas</th>
-                            <th class="p-4">Sede Local</th>
-                            <th class="p-4">ITSE / Def. Civil</th>
+                            <th class="p-4">Personal (Sede/Campo)</th>
+                            <th class="p-4">T. Evac.</th>
+                            <th class="p-4">Evac. Ext. / Reub. Int.</th>
+                            <th class="p-4">Sede / ITSE</th>
                             <th class="p-4">Comunicaciones</th>
                             <th class="p-4">Backup Padrones</th>
+                            <th class="p-4">Daños / Incidentes</th>
                         </tr>
                     </thead>
                     <tbody class="text-xs divide-y divide-slate-800/60 text-slate-300" id="tabla-datos">
-                        <!-- Data cargada mediante JS para facilitar edición -->
+                        <!-- Procesado por JavaScript -->
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
 
-    <!-- SISTEMA DE INTELIGENCIA DE DATOS -->
+    <!-- PROCESAMIENTO E INTERCONEXIÓN DE DATOS -->
     <script>
-        // Datos crudos idénticos a los solicitados en la hoja de cálculo
+        // Matriz unificada basada en los reportes reales de WhatsApp de JUNTOS y PNAE
         const baseDeDatosMidis = [
-            { programa: "Qali Warma", personalOficina: 12, personalCampo: 25, rutasCriticas: "Tramo Lircay - Deslizamientos", tipoSede: "Alquilado", itse: "En Trámite", comms: "Celular / Radio HF", backup: "SÍ" },
-            { programa: "Juntos", personalOficina: 8, personalCampo: 42, rutasCriticas: "Zonas Altas Tayacaja - Heladas", tipoSede: "Cedido", itse: "SÍ", comms: "Celular", backup: "SÍ" },
-            { programa: "Pensión 65", personalOficina: 6, personalCampo: 30, rutasCriticas: "Castrovirreyna - Pérdida de Señal", tipoSede: "Alquilado", itse: "NO", comms: "Satelital / Celular", backup: "SÍ" },
-            { programa: "Cuna Más", personalOficina: 15, personalCampo: 18, rutasCriticas: "Zonas Urbanas y Periferias", tipoSede: "Propio", itse: "SÍ", comms: "Celular", backup: "NO" },
-            { programa: "Plataforma PAIS", personalOficina: 4, personalCampo: 24, rutasCriticas: "Accesos a Tambos Distantes", tipoSede: "Propio (Tambos)", itse: "En Trámite", comms: "Radio VHF / Satelital", backup: "SÍ" }
+            { 
+                programa: "PNAE (Prog. Nac. Alimentación Escolar)", 
+                personalOficina: 18, personalCampo: 28, tipoSede: "Alquilado", itse: "En Trámite", comms: "Celular + Radio (HF/VHF)", backup: "SÍ",
+                tiempoEvac: "3 min", evacuadosExt: 10, reubicadosInt: 8, danosInfra: "Mínimos", incidentes: "0 Heridos"
+            },
+            { 
+                programa: "JUNTOS", 
+                personalOficina: 11, personalCampo: 42, tipoSede: "Cedido en Uso", itse: "SÍ", comms: "Solo Celular (Móvil)", backup: "SÍ",
+                tiempoEvac: "3 min", evacuadosExt: 11, reubicadosInt: 0, danosInfra: "Ninguno", incidentes: "0 Heridos"
+            },
+            { 
+                programa: "PENSIÓN 65", 
+                personalOficina: 6, personalCampo: 30, tipoSede: "Alquilado", itse: "NO", comms: "Celular + Satelital", backup: "SÍ",
+                tiempoEvac: "Pendiente", evacuadosExt: 0, reubicadosInt: 0, danosInfra: "Ninguno", incidentes: "Sin Reporte"
+            },
+            { 
+                programa: "CUNA MÁS", 
+                personalOficina: 15, personalCampo: 18, tipoSede: "Propio", itse: "SÍ", comms: "Solo Celular (Móvil)", backup: "NO",
+                tiempoEvac: "Pendiente", evacuadosExt: 0, reubicadosInt: 0, danosInfra: "Ninguno", incidentes: "Sin Reporte"
+            },
+            { 
+                programa: "CONTIGO", 
+                personalOficina: 4, personalCampo: 12, tipoSede: "Cedido en Uso", itse: "NO", comms: "Solo Celular (Móvil)", backup: "SÍ",
+                tiempoEvac: "Pendiente", evacuadosExt: 0, reubicadosInt: 0, danosInfra: "Ninguno", incidentes: "Sin Reporte"
+            },
+            { 
+                programa: "PLATAFORMA PAIS (Tambos)", 
+                personalOficina: 5, personalCampo: 24, tipoSede: "Propio", itse: "En Trámite", comms: "Radio + Satelital", backup: "SÍ",
+                tiempoEvac: "Pendiente", evacuadosExt: 0, reubicadosInt: 0, danosInfra: "Ninguno", incidentes: "Sin Reporte"
+            },
+            { 
+                programa: "FONCODES", 
+                personalOficina: 7, personalCampo: 20, tipoSede: "Afectación en Uso", itse: "SÍ", comms: "Celular + Radio (HF/VHF)", backup: "SÍ",
+                tiempoEvac: "Pendiente", evacuadosExt: 0, reubicadosInt: 0, danosInfra: "Ninguno", incidentes: "Sin Reporte"
+            }
         ];
 
-        // Renderizar la tabla de datos dinámicamente
         const tbody = document.getElementById("tabla-datos");
+        
+        // Variables para cálculo de KPIs
+        let totalOficina = 0;
+        let totalCampo = 0;
+        let totalEvacuadosExt = 0;
+        let totalReubicadosInt = 0;
+        let conteoItseSi = 0;
+        let conteoItseNo = 0;
+        let conteoItseTramite = 0;
+        let localesConDanos = 0;
+
+        let canalesComms = { "Solo Celular": 0, "Celular + Radio": 0, "Celular + Satelital": 0, "Radio + Satelital": 0 };
+
+        // Renderizado e inyección de datos cruzados
         baseDeDatosMidis.forEach(row => {
-            const itseBadge = row.itse === "SÍ" ? '<span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-md font-medium">Vigente</span>' : 
-                             row.itse === "NO" ? '<span class="bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-md font-medium">Vencido</span>' : 
-                             '<span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-md font-medium">En Trámite</span>';
+            totalOficina += row.personalOficina;
+            totalCampo += row.personalCampo;
+            totalEvacuadosExt += row.evacuadosExt;
+            totalReubicadosInt += row.reubicadosInt;
             
-            const backupBadge = row.backup === "SÍ" ? '<span class="text-emerald-400 font-bold"><i class="fa-solid fa-circle-check mr-1"></i>SÍ</span>' : '<span class="text-red-400 font-bold"><i class="fa-solid fa-circle-xmark mr-1"></i>NO</span>';
+            if(row.itse === "SÍ") conteoItseSi++;
+            if(row.itse === "NO") conteoItseNo++;
+            if(row.itse === "En Trámite") conteoItseTramite++;
+            if(row.danosInfra === "Mínimos" || row.danosInfra === "Estructurales") localesConDanos++;
+
+            // Clasificación lógica para gráfico de comunicaciones
+            if(row.comms.includes("Solo Celular")) canalesComms["Solo Celular"]++;
+            else if(row.comms.includes("Radio") && row.comms.includes("Satelital")) canalesComms["Radio + Satelital"]++;
+            else if(row.comms.includes("Radio")) canalesComms["Celular + Radio"]++;
+            else if(row.comms.includes("Satelital")) canalesComms["Celular + Satelital"]++;
+
+            const itseBadge = row.itse === "SÍ" ? '<span class="text-emerald-400 font-semibold">Vigente</span>' : 
+                             row.itse === "NO" ? '<span class="text-red-400 font-semibold">Vencido</span>' : 
+                             '<span class="text-amber-400 font-semibold">En Trámite</span>';
+            
+            const backupBadge = row.backup === "SÍ" ? '<span class="text-emerald-400"><i class="fa-solid fa-cloud-arrow-up mr-1"></i>SÍ</span>' : '<span class="text-red-400"><i class="fa-solid fa-triangle-exclamation mr-1"></i>NO</span>';
+            
+            const danosBadge = row.danosInfra === "Ninguno" ? '<span class="text-slate-400">Ninguno</span>' : `<span class="text-amber-500 font-bold"><i class="fa-solid fa-house-damage mr-1"></i>${row.danosInfra}</span>`;
 
             tbody.innerHTML += `
-                <tr class="hover:bg-slate-900/40 transition-colors">
-                    <td class="p-4 font-bold text-white">${row.programa}</td>
-                    <td class="p-4"><span class="font-semibold text-slate-200">${row.personalOficina}</span> / <span class="text-slate-400">${row.personalCampo}</span></td>
-                    <td class="p-4 text-slate-400 max-w-xs truncate">${row.rutasCriticas}</td>
-                    <td class="p-4 text-slate-300">${row.tipoSede}</td>
-                    <td class="p-4">${itseBadge}</td>
-                    <td class="p-4 font-mono text-slate-400">${row.comms}</td>
+                <tr class="hover:bg-slate-900/40 transition-colors border-b border-slate-800/40">
+                    <td class="p-4 font-bold text-white text-xs">${row.programa}</td>
+                    <td class="p-4"><span class="font-bold text-slate-200">${row.personalOficina}</span> <span class="text-slate-500">/</span> <span class="text-slate-400">${row.personalCampo}</span></td>
+                    <td class="p-4 font-mono text-amber-400">${row.tiempoEvac}</td>
+                    <td class="p-4"><span class="text-emerald-400 font-semibold">${row.evacuadosExt} Ext.</span> <span class="text-slate-600">|</span> <span class="text-blue-400">${row.reubicadosInt} Int.</span></td>
+                    <td class="p-4 text-[11px]">${row.tipoSede} <br/> ${itseBadge}</td>
+                    <td class="p-4 font-mono text-slate-400 text-[11px]">${row.comms}</td>
                     <td class="p-4">${backupBadge}</td>
+                    <td class="p-4 text-[11px]">${danosBadge} <br/> <span class="text-slate-400 text-[10px]">${row.incidentes}</span></td>
                 </tr>
             `;
         });
 
-        // Configuración de Gráfico ITSE (Doughnut Chart)
+        // Actualización de KPIs en la cabecera del panel
+        document.getElementById("kpi-personal").innerHTML = totalOficina;
+        document.getElementById("sub-kpi-campo").innerHTML = `<span class="text-emerald-400 font-medium">${totalCampo}</span> en rutas de campo (SST)`;
+        document.getElementById("kpi-evacuados").innerHTML = `${totalEvacuadosExt} Salvados`;
+        document.getElementById("sub-kpi-reubicados").innerHTML = `<span class="text-blue-400 font-medium">${totalReubicadosInt}</span> reubicados en columnas`;
+        document.getElementById("kpi-itse").innerHTML = Math.round((conteoItseSi / baseDeDatosMidis.length) * 100) + "%";
+        document.getElementById("kpi-danos").innerHTML = localesConDanos;
+
+        // Configuración Gráfico ITSE
         const ctxItse = document.getElementById('chartITSE').getContext('2d');
         new Chart(ctxItse, {
             type: 'doughnut',
             data: {
                 labels: ['Vigente (SÍ)', 'En Trámite', 'Vencido (NO)'],
                 datasets: [{
-                    data: [2, 2, 1], // Basado en los datos de arriba
+                    data: [conteoItseSi, conteoItseTramite, conteoItseNo],
                     backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
                     borderWidth: 2,
                     borderColor: '#0f172a'
@@ -196,20 +271,20 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'sans-serif', size: 11 } } }
+                    legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11 } } }
                 }
             }
         });
 
-        // Configuración de Gráfico Canales de Comunicación (Bar Chart)
+        // Configuración Gráfico Comunicaciones
         const ctxComms = document.getElementById('chartComms').getContext('2d');
         new Chart(ctxComms, {
             type: 'bar',
             data: {
-                labels: ['Solo Celular', 'Celular + Radio', 'Celular + Satelital', 'Radio + Satelital'],
+                labels: Object.keys(canalesComms),
                 datasets: [{
-                    label: 'Cantidad de Programas',
-                    data: [2, 1, 1, 1],
+                    label: 'Unidades Territoriales',
+                    data: Object.values(canalesComms),
                     backgroundColor: '#3b82f6',
                     borderRadius: 6
                 }]
